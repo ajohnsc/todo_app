@@ -1,5 +1,7 @@
--- Create todo_app database and add a clause that if it does not exists
-
--- Use and Manage todo_app
-
--- Create a tasks Table if does not exists with a columns namely id that is an Integer and Auto Increment and Primary Key, owner string that is not null, tasks_name string not null
+CREATE DATABASE IF NOT EXISTS todo_app;
+USE todo_app;
+CREATE TABLE IF NOT EXISTS tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    owner VARCHAR(255) NOT NULL,
+    task_name VARCHAR(255) NOT NULL
+);
