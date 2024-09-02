@@ -20,7 +20,7 @@ services:
 # add a frontend service as frontend
 #   - build the ./frontend folder
 #   - use API_URL environment variable and set the variable as "http://backend:8000"
-#   - port forward from 5000 of the container to 8080
+#   - port forward from 5000 of the container to <assigned number>080 example if your assigned number is 10 then your port is 10080
 #   - this container should create this container after the creation of the backend service
 #   - name the container name as <name>-frontend example aj-frontend
 #
