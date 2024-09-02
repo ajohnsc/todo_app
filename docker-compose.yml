@@ -1,0 +1,28 @@
+services:
+#
+# add database service as db
+#   use mariadb:latest image
+#   use MYSQL_ROOT_PASSWORD environment variable and set the variable as "example"
+#   make a db_data volume that will mount /var/lib/mysql of the container
+#   make another volume ./db/init.sql and mount to /docker-entrypoint-initdb.d/init.sql of the container
+#
+
+#
+# add a backend service as backend
+#   build the ./backend folder
+#   use DATABASE_URL environment variable and set the variable as "mysql://root:example@db/todo_app"
+#   and this container should create this container after the creation of the database service
+# 
+
+#
+# add a frontend service as frontend
+#   build the ./frontend folder
+#   use API_URL environment variable and set the variable as "http://backend:8000"
+#   port forward from 5000 of the container to 8080
+#   and this container should create this container after the creation of the backend service
+#  
+
+volumes:
+#
+# create db_data volume
+#

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Todo App</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Todo List</h1>
+        <form method="POST" action="/add" class="form-inline mt-4 mb-4">
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control" name="owner" placeholder="Owner" required>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control" name="task_name" placeholder="Task Name" required>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Add</button>
+        </form>
+
+        <ul class="list-group">
+        {% for task in tasks %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <strong>{{ task.owner }}:</strong> {{ task.task_name }}
+                </div>
+                <div>
+                    <form method="POST" action="/update/{{ task.id }}" style="display:inline;">
+                        <input type="text" class="form-control mb-2" name="task_name" placeholder="New Task Name" required style="display:inline; width:auto;">
+                        <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                    </form>
+                    <a href="/delete/{{ task.id }}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
