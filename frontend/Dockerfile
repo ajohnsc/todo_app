@@ -1,10 +1,6 @@
 # Use the Rocky Linux 8 base image
 
-# Update the container and install python39 python39-devel gcc then clean all cache
-
-# Set up a symlink to use python3 as python
-
-# Install pip via CDN https://bootstrap.pypa.io/get-pip.py
+# Update the container and install python39 python39-pip python39-devel gcc then clean all cache
 
 # Change the working directory as /app
 
@@ -16,4 +12,4 @@
 
 # Expose the Flask port
 
-# Command to run the Flask app via "python app.py"
+# Command to run the Flask app via "python3 app.py"
