@@ -1,7 +1,6 @@
-version: '3'
-
 services:
   db:
+    container_name: db
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: example
@@ -10,6 +9,7 @@ services:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   backend:
+    container_name: backend
     build: ./backend
     depends_on:
       - db
@@ -17,6 +17,7 @@ services:
       DATABASE_URL: "mysql://root:example@db/todo_app"
 
   frontend:
+    container_name: frontend
     build: ./frontend
     ports:
       - "8080:5000"
